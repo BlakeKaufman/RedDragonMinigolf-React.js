@@ -2,10 +2,18 @@ export default function Row(props) {
   let playersArr;
   let statsArr;
 
+  const headerNameStyle = {
+    maxWidth: (window.innerWidth - 80) / props.game.Players.length,
+  };
+
   if (props.id === 0) {
     playersArr = props.game.Players.map((player) => {
       return (
-        <div key={player.id} className="grid-items th mb-2 static gray">
+        <div
+          key={player.id}
+          style={headerNameStyle}
+          className="grid-items th mb-2 static gray"
+        >
           <span>{player.name}</span>
         </div>
       );

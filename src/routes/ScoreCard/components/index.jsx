@@ -41,14 +41,37 @@ export default function Content() {
   function setScore(event) {
     const targetEvent = event.target;
     if (targetEvent.classList.contains("score")) {
-      const clickedScore = targetEvent.textContent;
+      const clickedScore = Number(targetEvent.textContent);
       const [playerId, holeId] = targetPlayer;
-      console.log(playerId, holeId);
 
       const [filteredPlayer] = game.Players.filter(
         (player) => player.id === playerId
       );
-      console.log(filteredPlayer);
+
+      const updatedScore = filteredPlayer.score.map((score) =>
+        score.hole === holeId ? { ...score, score: clickedScore } : score
+      );
+
+      const t = game.Players.map((player) => {
+        return player.id === playerId
+          ? { ...player, score: updatedScore }
+          : player;
+      });
+
+      setGame((prevGame) => {
+        const newGame = {
+          ...prevGame,
+          Players: prevGame.Players.map((player) => {
+            return player.id === playerId
+              ? { ...player, score: updatedScore }
+              : player;
+          }),
+        };
+        localStorage.setItem("RedDragonGolf", JSON.stringify(newGame));
+        return newGame;
+      });
+
+      setPopupDisplayed(false);
     } else {
       setPopupDisplayed(false);
     }

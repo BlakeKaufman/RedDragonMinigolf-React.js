@@ -57,12 +57,16 @@
 .scoreCard_container .th {
   height: 40px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  line-height: 40px;
+
+  padding: 0 5px;
 
   background-color: white;
   text-transform: uppercase;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  text-align: center;
 }
 .scoreCard_container .dark-blue {
   background-color: #0089b7;
