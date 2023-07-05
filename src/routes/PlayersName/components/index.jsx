@@ -2,6 +2,7 @@ import { useState } from "react";
 import altLogo from "../../../assets/images/altLogo.webp";
 import NameCard from "./NameCard";
 import Popup from "../../../components/Popup";
+import SubmitButton from "../../../components/SubmitButton";
 
 function createArray() {
   return Array.from({ length: 18 }, (_, index) => {
@@ -84,9 +85,8 @@ export default function Content() {
       <img className="logo" src={altLogo} alt="red dragon logo" />
       <h1>Enter Players</h1>
       {inputElements}
-      <span onClick={submitForm} className="submit_BTN">
-        Begin
-      </span>
+
+      <SubmitButton functionName={submitForm} content="Begin" />
       <Popup
         clearPopup={clearPopup}
         isDisplayed={isPopupDisplayed}

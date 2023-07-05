@@ -1,6 +1,7 @@
 .players_name_container {
   width: 100vw;
   height: fit-content;
+  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
@@ -91,22 +92,7 @@
 }
 
 .players_name_container .submit_BTN {
-  width: 140px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-color: red;
-  color: white;
-
-  border-radius: 20px;
-
   margin: 0 auto;
-  text-transform: uppercase;
-
-  font-family: var(--GothamBook);
-  letter-spacing: 2px;
 }
 
 .backgroundImage {
