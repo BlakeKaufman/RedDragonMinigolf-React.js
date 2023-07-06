@@ -26,7 +26,7 @@ export default function Content() {
 
     localStorage.setItem("RedDragonGolf", JSON.stringify(game));
 
-    window.open("http://localhost:5173/playersName", "_self");
+    window.open("https://rdadventuregolf.netlify.app/playersName", "_self");
   }
   const courseElements = courses.map((course) => (
     <CourseBox handleClick={setCourse} key={course.id} {...course} />

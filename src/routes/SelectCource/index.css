@@ -1,7 +1,7 @@
 /* content styling */
 .select_course_content {
-  height: calc(100vh - 60px);
-  transform: translateY(-60px);
+  height: 100vh;
+
   display: flex;
   flex-direction: column;
 }
@@ -10,10 +10,6 @@
     height: fit-content;
   }
 }
-/* .select_course_content .altLogo {
-  width: 100%;
-  margin-top: -150px;
-} */
 
 h1 {
   font-size: min(7vw, 25px);
@@ -31,6 +27,7 @@ h1 {
   height: fit-content;
 
   margin: 10px auto auto;
+  padding-bottom: 30px;
 
   display: flex;
   flex-direction: column;

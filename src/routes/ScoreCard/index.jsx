@@ -32,12 +32,11 @@ export default function ScoreCard() {
 
     localStorage.setItem("RedDragonGolf", JSON.stringify(game));
 
-    window.open("http://localhost:5173/leaderboard", "_self");
+    window.open("https://rdadventuregolf.netlify.app/leaderboard", "_self");
   }
 
   return (
     <div className="scoreCard_container">
-      <NavBar name="scoreCard" courseNumber={game.isAda ? 2 : 1} />
       <Content gameState={setGame} game={game} />
       <SubmitButton functionName={submitScorecard} content="See Winner" />
       <img

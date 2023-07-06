@@ -1,7 +1,7 @@
 .scoreCard_content_container {
   width: 100vw;
   height: fit-content;
-  transform: translateY(-60px);
+  position: relative;
 }
 @media screen and (max-width: 280px) {
   .scoreCard_container .altLogo {

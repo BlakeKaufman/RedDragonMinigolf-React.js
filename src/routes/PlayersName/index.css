@@ -8,9 +8,9 @@
 
   position: relative;
 }
-.players_name_container .form_content {
-  transform: translateY(-60px);
-}
+/* .players_name_container .form_content {
+  padding-bottom: 100px;
+} */
 
 /* form styling */
 
@@ -84,10 +84,6 @@
   background-color: unset;
   margin: unset;
   font-size: 25px;
-}
-
-.players_name_container .submit_BTN {
-  margin: 0 auto;
 }
 
 .backgroundImage {

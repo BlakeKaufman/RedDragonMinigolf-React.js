@@ -1,6 +1,7 @@
 import { useState } from "react";
 import logo from "../../../assets/images/altLogo.webp";
 import Row from "./ScoreCardRow";
+import NavBar from "../../../components/NavBar";
 
 import ScoreSelector from "./ScoreSelector";
 const holes = [
@@ -89,6 +90,7 @@ export default function Content(props) {
 
   return (
     <div className="scoreCard_content_container">
+      <NavBar name="scoreCard" courseNumber={game.isAda ? 2 : 1} />
       <img src={logo} alt="red dragon logo" className="altLogo" />
       <h1 style={headingColorStyles}>{game.courseName.toUpperCase()}</h1>
       <div style={gridStyle} className="grid-container">
