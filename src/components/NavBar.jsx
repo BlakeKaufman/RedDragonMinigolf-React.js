@@ -51,6 +51,22 @@ export default function NavBar(props) {
             <Link to="/selectCource">SELECT COURSE</Link>
           </li>
         </div>
+        {props.name === "scoreCard" && (
+          <div className="list-style">
+            <img src={arrowRight} alt="map icon" />
+            <li>
+              <Link to="/leaderboard">LEADERBOARD</Link>
+            </li>
+          </div>
+        )}
+        {props.name === "leaderboard" && (
+          <div className="list-style">
+            <img src={arrowRight} alt="map icon" />
+            <li>
+              <Link to="/scoreCard">SCORE CARD</Link>
+            </li>
+          </div>
+        )}
         {/* <!--<div className="list-style">-->
             <!--    <img src="./images/reshot-icon-bold-right-arrow-STPW6DFVRY-7b0db.svg" alt="map icon">-->
             <!--    <li><a href="index.php?PageName=ScorecardMC">SCORE CARD</a></li>-->
