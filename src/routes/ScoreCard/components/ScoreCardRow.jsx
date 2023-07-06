@@ -1,6 +1,12 @@
+import { useState } from "react";
 export default function Row(props) {
   let playersArr;
   let statsArr;
+  const [reload, setReload] = useState("");
+
+  window.addEventListener("deviceorientation", () => {
+    setReload("reload");
+  });
 
   const headerNameStyle = {
     maxWidth: (window.innerWidth - 80) / props.game.Players.length,

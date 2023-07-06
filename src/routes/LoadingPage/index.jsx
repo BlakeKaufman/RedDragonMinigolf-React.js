@@ -4,6 +4,7 @@ import "./index.css";
 import shipImg from "../../assets/images/DragonBoat.webp";
 
 export default function LoadingPage() {
+  localStorage.removeItem("RedDragonGolf");
   return (
     // <div className="LoadingPage">
     <>

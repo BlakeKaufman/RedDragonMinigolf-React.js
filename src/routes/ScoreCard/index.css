@@ -3,9 +3,11 @@
   height: fit-content;
   transform: translateY(-60px);
 }
-.scoreCard_container .logo {
-  width: 100vw;
-  margin-top: -130px;
+@media screen and (max-width: 280px) {
+  .scoreCard_container .altLogo {
+    width: 100vw;
+    margin-top: -80px;
+  }
 }
 .scoreCard_container h1 {
   margin-top: -70px;

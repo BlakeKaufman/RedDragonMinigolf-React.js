@@ -82,7 +82,7 @@ export default function Content() {
   ));
   return (
     <div className="form_content">
-      <img className="logo" src={altLogo} alt="red dragon logo" />
+      <img className="altLogo" src={altLogo} alt="red dragon logo" />
       <h1>Enter Players</h1>
       {inputElements}
 

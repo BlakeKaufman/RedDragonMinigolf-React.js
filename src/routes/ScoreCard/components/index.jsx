@@ -1,7 +1,7 @@
 import { useState } from "react";
 import logo from "../../../assets/images/altLogo.webp";
 import Row from "./ScoreCardRow";
-import Popup from "../../../components/Popup";
+
 import ScoreSelector from "./ScoreSelector";
 const holes = [
   { id: 0 },
@@ -26,10 +26,8 @@ const holes = [
   { id: 18, ada: 2, nonAda: 2 },
   { id: "scoreb" },
 ];
-export default function Content() {
-  const [game, setGame] = useState(
-    JSON.parse(localStorage.getItem("RedDragonGolf"))
-  );
+export default function Content(props) {
+  const game = props.game;
   const [popupDisplayed, setPopupDisplayed] = useState(false);
   const [targetPlayer, setTargetPlayer] = useState([]);
 
@@ -52,13 +50,7 @@ export default function Content() {
         score.hole === holeId ? { ...score, score: clickedScore } : score
       );
 
-      const t = game.Players.map((player) => {
-        return player.id === playerId
-          ? { ...player, score: updatedScore }
-          : player;
-      });
-
-      setGame((prevGame) => {
+      props.gameState((prevGame) => {
         const newGame = {
           ...prevGame,
           Players: prevGame.Players.map((player) => {
@@ -67,7 +59,6 @@ export default function Content() {
               : player;
           }),
         };
-        localStorage.setItem("RedDragonGolf", JSON.stringify(newGame));
         return newGame;
       });
 
@@ -98,7 +89,7 @@ export default function Content() {
 
   return (
     <div className="scoreCard_content_container">
-      <img src={logo} alt="red dragon logo" className="logo" />
+      <img src={logo} alt="red dragon logo" className="altLogo" />
       <h1 style={headingColorStyles}>{game.courseName.toUpperCase()}</h1>
       <div style={gridStyle} className="grid-container">
         {rowElements}
