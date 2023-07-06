@@ -27,7 +27,7 @@ body {
 }
 #root {
   width: 100vw;
-  max-width: 600px;
+  max-width: 1000px;
   height: 100vh;
   overflow-x: hidden;
 
@@ -39,8 +39,16 @@ body {
 a {
   text-decoration: none;
 }
+
 .altLogo {
-  width: 100vw;
+  width: 100%;
+  margin-top: -150px;
+}
+
+@media screen and (max-width: 280px) {
+  .altLogo {
+    margin-top: -105px;
+  }
 }
 
 .submit_BTN {

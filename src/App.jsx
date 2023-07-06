@@ -3,6 +3,7 @@ import LoadingPage from "./routes/LoadingPage";
 import SelectCource from "./routes/SelectCource";
 import PlayersName from "./routes/PlayersName";
 import ScoreCard from "./routes/ScoreCard";
+import Leaderboard from "./routes/Leaderboard";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path="/selectCource" element={<SelectCource />} />
       <Route path="/playersName" element={<PlayersName />} />
       <Route path="/scoreCard" element={<ScoreCard />} />
+      <Route path="/leaderboard" element={<Leaderboard />} />
     </Routes>
   );
 }
