@@ -1,4 +1,4 @@
-# RedDragon Mini golf react app
+# Mobile only RedDragon Mini golf react app
 
 ## Table of contents
 
