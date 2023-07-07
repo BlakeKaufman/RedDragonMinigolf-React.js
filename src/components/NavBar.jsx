@@ -46,14 +46,14 @@ export default function NavBar(props) {
           <h3>COURSE MAP</h3>
         </div>
         <div className="list-style">
-          <img src={arrowRight} alt="map icon" />
+          <img src={arrowRightOrange} alt="map icon" />
           <li>
             <Link to="/selectCource">SELECT COURSE</Link>
           </li>
         </div>
         {props.name === "scoreCard" && (
           <div className="list-style">
-            <img src={arrowRight} alt="map icon" />
+            <img src={arrowRightOrange} alt="map icon" />
             <li>
               <Link to="/leaderboard">LEADERBOARD</Link>
             </li>
@@ -61,7 +61,7 @@ export default function NavBar(props) {
         )}
         {props.name === "leaderboard" && (
           <div className="list-style">
-            <img src={arrowRight} alt="map icon" />
+            <img src={arrowRightOrange} alt="map icon" />
             <li>
               <Link to="/scoreCard">SCORE CARD</Link>
             </li>
@@ -78,17 +78,13 @@ export default function NavBar(props) {
         <div className="list-style">
           <img src={arrowRightOrange} alt="map icon" />
           <li>
-            <a href="index.php?PageName=Code" className="formPages">
-              RULES
-            </a>
+            <Link to="/rules">RULES</Link>
           </li>
         </div>
         <div className="list-style">
           <img src={arrowRightOrange} alt="map icon" />
           <li>
-            <a href="index.php?PageName=Waiver" className="formPages">
-              WAIVER
-            </a>
+            <Link to="/waiver">WAIVER</Link>
           </li>
         </div>
       </ul>

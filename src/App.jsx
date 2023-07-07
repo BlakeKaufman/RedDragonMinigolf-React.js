@@ -4,6 +4,8 @@ import SelectCource from "./routes/SelectCource";
 import PlayersName from "./routes/PlayersName";
 import ScoreCard from "./routes/ScoreCard";
 import Leaderboard from "./routes/Leaderboard";
+import Waiver from "./routes/Waiver";
+import Rules from "./routes/Rules";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Route path="/playersName" element={<PlayersName />} />
       <Route path="/scoreCard" element={<ScoreCard />} />
       <Route path="/leaderboard" element={<Leaderboard />} />
+      <Route path="/waiver" element={<Waiver />} />
+      <Route path="/rules" element={<Rules />} />
     </Routes>
   );
 }
