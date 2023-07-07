@@ -10,7 +10,7 @@ export default function Content() {
     };
     localStorage.setItem("RedDragonGolf", JSON.stringify(game));
 
-    window.open("https://rdadventuregolf.netlify.app/selectCource", "_self");
+    window.open("http://rdadventuregolf.com/selectCource", "_self");
   }
   return (
     <div className="content">

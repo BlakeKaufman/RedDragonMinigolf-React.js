@@ -7,7 +7,16 @@ import "./index.css";
 
 export default function Leaderboard() {
   const game = JSON.parse(localStorage.getItem("RedDragonGolf"));
-  console.log(game);
+
+  game.Players = game.Players.map((player) => {
+    return {
+      ...player,
+      total_score: player.score.reduce((count, value) => {
+        return count + value.score;
+      }, 0),
+    };
+  });
+
   game.Players.sort((a, b) => {
     return a.total_score - b.total_score;
   });

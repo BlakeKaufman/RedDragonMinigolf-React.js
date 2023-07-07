@@ -4,6 +4,8 @@ import mapImg from "../../assets/images/map.webp";
 import "./index.css";
 
 export default function PlayersName() {
+  document.body.style.overflow = "hidden scroll";
+  document.getElementById("root").style.height = "fit-content";
   return (
     <div className="players_name_container">
       <NavBar />

@@ -1,6 +1,7 @@
 .players_name_container {
   width: 100vw;
   height: fit-content;
+
   min-height: 100vh;
 
   display: flex;
@@ -51,7 +52,7 @@
 
   position: absolute;
   top: 0;
-  left: -5px;
+  left: -6px;
   z-index: 1;
 }
 .players_name_container .inputContainer .flagContainer img {

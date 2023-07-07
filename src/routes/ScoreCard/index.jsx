@@ -12,27 +12,9 @@ export default function ScoreCard() {
   localStorage.setItem("RedDragonGolf", JSON.stringify(game));
 
   function submitScorecard() {
-    console.log(game, "ZZZ");
-    setGame((prevGame) => {
-      console.log(prevGame, "PPPPP");
-      return {
-        ...prevGame,
-        Players: prevGame.Players.map((player) => {
-          return {
-            ...player,
-            total_score: player.score.reduce((count, value) => {
-              console.log(count + value.score);
-
-              return count + value.score;
-            }, 0),
-          };
-        }),
-      };
-    });
-
     localStorage.setItem("RedDragonGolf", JSON.stringify(game));
 
-    window.open("https://rdadventuregolf.netlify.app/leaderboard", "_self");
+    window.open("http://rdadventuregolf.com/leaderboard", "_self");
   }
 
   return (

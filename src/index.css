@@ -7,9 +7,9 @@
   --BlackPerl: "blackpearlblackpearl";
 }
 
-html {
+/* html {
   overflow: hidden;
-}
+} */
 
 * {
   margin: 0;
@@ -105,50 +105,40 @@ a {
 
 @font-face {
   font-family: "minion_proregular";
-  src: url("https://rdadventuregolf.netlify.app/src/assets/fonts/minionpro-regular-webfont.woff2")
-      format("woff2"),
-    url("https://rdadventuregolf.netlify.app/src/assets/fonts/minionpro-regular-webfont.woff")
-      format("woff");
+  src: url("./assets/fonts/minionpro-regular-webfont.woff2") format("woff2"),
+    url("./assets/fonts/minionpro-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "gothambook";
-  src: url("https://rdadventuregolf.netlify.app/src/assets/fonts/gotham-book-webfont.woff2")
-      format("woff2"),
-    url("https://rdadventuregolf.netlify.app/src/assets/fonts/gotham-book-webfont.woff")
-      format("woff");
+  src: url("./assets/fonts/gotham-book-webfont.woff2") format("woff2"),
+    url("./assets/fonts/gotham-book-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "din_condensedbold";
-  src: url("https://rdadventuregolf.netlify.app/src/assets/fonts/din_condensed_bold-webfont.woff2")
-      format("woff2"),
-    url("https://rdadventuregolf.netlify.app/src/assets/fonts/din_condensed_bold-webfont.woff")
-      format("woff");
+  src: url("./assets/fonts/din_condensed_bold-webfont.woff2") format("woff2"),
+    url("./assets/fonts/din_condensed_bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "din_alternatebold";
-  src: url("https://rdadventuregolf.netlify.app/src/assets/fonts/din_alternate_bold-webfont.woff2")
-      format("woff2"),
-    url("https://rdadventuregolf.netlify.app/src/assets/fonts/din_alternate_bold-webfont.woff")
-      format("woff");
+  src: url("./assets/fonts/din_alternate_bold-webfont.woff2") format("woff2"),
+    url("./assets/fonts/din_alternate_bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "blackpearlblackpearl";
-  src: url("https://rdadventuregolf.netlify.app/src/assets/fonts/blackpearl-vpxa-webfont.woff2")
-      format("woff2"),
-    url("https://rdadventuregolf.netlify.app/src/assets/fonts/blackpearl-vpxa-webfont.woff")
-      format("woff");
+  src: url("./assets/fonts/blackpearl-vpxa-webfont.woff2") format("woff2"),
+    url("./assets/fonts/blackpearl-vpxa-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
