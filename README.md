@@ -25,7 +25,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./assets/images/Screenshot.png)
+![](./public/RedDragonAppPicture.PNG)
 
 ### Links
 
