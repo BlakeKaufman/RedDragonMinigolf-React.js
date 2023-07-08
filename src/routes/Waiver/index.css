@@ -1,12 +1,18 @@
 .waiver_container {
   width: 100%;
   height: fit-content;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 50px;
+  padding-bottom: 150px;
 
   position: relative;
+
+  color: white;
+  font-family: var(--GothamBook), sans-serif;
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 .waiver_container .backgroundImg {
   width: 100%;
@@ -52,19 +58,4 @@
 .waiver_container .rules {
   width: 95%;
   margin: 0 auto;
-}
-.waiver_container {
-  margin: 0;
-  color: white;
-  font-family: var(--GothamBook), sans-serif;
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-.waiver_container {
-  font-size: 18px;
-  color: white;
-  font-family: var(--DinCondensedALt), sans-serif;
-  line-height: 25px;
-  margin: 0;
-  padding-bottom: 15px;
 }

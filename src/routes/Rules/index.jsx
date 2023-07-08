@@ -9,7 +9,7 @@ export default function Rules() {
       <NavBar />
       <img className="logo" src={logo} alt="logo" />
       <div className="text">
-        <h2>the pirate's code</h2>
+        <h2 className="rules_title">the pirate's code</h2>
         <div className="rules">
           <div className="maxSize">
             <h3>maximum group size</h3>

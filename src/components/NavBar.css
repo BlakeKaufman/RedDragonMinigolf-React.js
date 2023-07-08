@@ -49,6 +49,7 @@ nav {
   width: 100%;
   border-bottom: 1px solid orange;
   font-size: 25px;
+  font-family: var(--DinCondensedALt);
 }
 .CouseMap-img {
   width: 98%;

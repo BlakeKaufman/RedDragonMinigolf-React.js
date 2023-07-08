@@ -11,17 +11,6 @@
   }
 }
 
-h1 {
-  font-size: min(7vw, 25px);
-  color: #13bbaf;
-  letter-spacing: 8px;
-  margin-bottom: 15px;
-  font-family: var(--DinCondensedALt), sans-serif;
-  text-align: center;
-
-  margin-top: -50px;
-}
-
 .select_course_content .courses_container {
   width: 100%;
   height: fit-content;

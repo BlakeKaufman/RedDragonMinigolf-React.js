@@ -2,7 +2,7 @@
   width: 100%;
   height: fit-content;
   min-height: 100vh;
-  padding-bottom: 20px;
+  padding-bottom: 150px;
 
   position: relative;
 }
@@ -34,7 +34,7 @@
 
   text-align: center;
 }
-.rules_container h2 {
+.rules_container .rules_title {
   font-family: var(--BlackPerl), sans-serif;
   letter-spacing: 5px;
   color: orange;

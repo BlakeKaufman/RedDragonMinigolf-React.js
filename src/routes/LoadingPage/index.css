@@ -29,6 +29,7 @@
 
   margin: 10vh auto;
   font-family: var(--GothamBook);
+  text-transform: uppercase;
 }
 .backgroundImg {
   width: 100%;
@@ -40,4 +41,23 @@
   left: 0;
   top: 0;
   z-index: -1;
+}
+
+.glowing-border {
+  border: 2px solid red;
+  border-radius: 8px;
+  position: relative;
+  animation: glowing 2s infinite;
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 5px red;
+  }
+  50% {
+    box-shadow: 0 0 20px red, 0 0 40px red;
+  }
+  100% {
+    box-shadow: 0 0 5px red;
+  }
 }

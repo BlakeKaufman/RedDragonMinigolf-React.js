@@ -1,5 +1,4 @@
 import logo from "../../../assets/images/Logo.webp";
-import { Link } from "react-router-dom";
 
 export default function Content() {
   function setGame() {
@@ -10,12 +9,14 @@ export default function Content() {
     };
     localStorage.setItem("RedDragonGolf", JSON.stringify(game));
 
-    window.open("http://rdadventuregolf.com/selectCource", "_self");
+    window.open("https://rdadventuregolf.netlify.app/selectCource", "_self");
   }
   return (
     <div className="content">
-      <img className="logo" src={logo} alt="" />
-      <span onClick={setGame}>Start Round</span>
+      <img className="logo" src={logo} alt="logo" />
+      <span className="glowing-border" onClick={setGame}>
+        Start Round
+      </span>
     </div>
   );
 }

@@ -14,7 +14,7 @@ export default function ScoreCard() {
   function submitScorecard() {
     localStorage.setItem("RedDragonGolf", JSON.stringify(game));
 
-    window.open("http://rdadventuregolf.com/leaderboard", "_self");
+    window.open("https://rdadventuregolf.netlify.app/leaderboard", "_self");
   }
 
   return (

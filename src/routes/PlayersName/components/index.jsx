@@ -58,7 +58,7 @@ export default function Content() {
 
       localStorage.setItem("RedDragonGolf", JSON.stringify(game));
 
-      window.open("http://rdadventuregolf.com/scoreCard", "_self");
+      window.open("https://rdadventuregolf.netlify.app/scoreCard", "_self");
     } else {
       setIsPopupDisplayed(true);
     }

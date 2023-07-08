@@ -1,3 +1,9 @@
+.scoreCard_container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px;
+}
+
 .scoreCard_content_container {
   width: 100vw;
   height: fit-content;
