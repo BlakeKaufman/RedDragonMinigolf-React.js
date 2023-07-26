@@ -55,6 +55,14 @@
 
   border-bottom: 1px solid white;
 }
+.waiver_container .header_text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.waiver_container .header_text h4:first-child {
+  margin-right: 20px;
+}
 .waiver_container .rules {
   width: 95%;
   margin: 0 auto;

@@ -3,7 +3,7 @@ import CourseBox from "./courseBox";
 
 const courses = [
   {
-    name: "maraunders Challenge",
+    name: "Marauders Challenge",
     id: 1,
     isAda: false,
   },
