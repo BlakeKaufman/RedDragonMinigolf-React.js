@@ -79,6 +79,7 @@
   background-color: unset;
   margin: unset;
   font-size: 25px;
+  white-space: nowrap;
 }
 
 .leaderboard_content_container .backgroundImg {
