@@ -1,28 +1,33 @@
 import { Route, Routes } from "react-router-dom";
-import LoadingPage from "./routes/LoadingPage";
-import SelectCource from "./routes/SelectCource";
-import PlayersName from "./routes/PlayersName";
-import ScoreCard from "./routes/ScoreCard";
-import Leaderboard from "./routes/Leaderboard";
-import InformationPage from "./routes/InformationPage";
+import { lazy, Suspense } from "react";
+
+const Loading = lazy(() => import("./components/loadingscreen"));
+const LoadingPage = lazy(() => import("./routes/LoadingPage"));
+const SelectCource = lazy(() => import("./routes/SelectCource"));
+const PlayersName = lazy(() => import("./routes/PlayersName"));
+const ScoreCard = lazy(() => import("./routes/ScoreCard"));
+const Leaderboard = lazy(() => import("./routes/Leaderboard"));
+const InformationPage = lazy(() => import("./routes/InformationPage"));
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<LoadingPage />} />
-      <Route path="/selectCource" element={<SelectCource />} />
-      <Route path="/playersName" element={<PlayersName />} />
-      <Route path="/scoreCard" element={<ScoreCard />} />
-      <Route path="/leaderboard" element={<Leaderboard />} />
-      <Route
-        path="/waiver"
-        element={<InformationPage wantedContent={"waiver"} />}
-      />
-      <Route
-        path="/rules"
-        element={<InformationPage wantedContent={"rules"} />}
-      />
-    </Routes>
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route path="/" element={<LoadingPage />} />
+        <Route path="/selectCource" element={<SelectCource />} />
+        <Route path="/playersName" element={<PlayersName />} />
+        <Route path="/scoreCard" element={<ScoreCard />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route
+          path="/waiver"
+          element={<InformationPage wantedContent={"waiver"} />}
+        />
+        <Route
+          path="/rules"
+          element={<InformationPage wantedContent={"rules"} />}
+        />
+      </Routes>
+    </Suspense>
   );
 }
 

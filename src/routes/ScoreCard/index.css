@@ -3,7 +3,7 @@
 }
 
 /* score card */
-.scoreCard_container .grid-container {
+.scoreCard_content_container .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 0.65fr) repeat(6, 5fr);
 
@@ -11,7 +11,7 @@
 
   font-family: var(--GothamBook);
 }
-.scoreCard_container .grid-items {
+.scoreCard_content_container .grid-items {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +19,7 @@
   border-bottom: 1px solid white;
 }
 
-.scoreCard_container .hole {
+.scoreCard_content_container .hole {
   min-width: 50px;
   height: 40px;
 
@@ -32,7 +32,7 @@
 
   font-size: 14px;
 }
-.scoreCard_container .par {
+.scoreCard_content_container .par {
   min-width: 50px;
   height: 40px;
 
@@ -45,7 +45,7 @@
 
   font-size: 14px;
 }
-.scoreCard_container .th {
+.scoreCard_content_container .th {
   height: 40px;
 
   display: block;
@@ -59,14 +59,14 @@
   overflow-x: scroll;
   text-align: center;
 }
-.scoreCard_container .dark-blue {
+.scoreCard_content_container .dark-blue {
   background-color: #0089b7;
   opacity: 0.6;
   color: white;
   border-right: 1px solid white;
 }
 
-.scoreCard_container .light-blue {
+.scoreCard_content_container .light-blue {
   background-color: #00bfff;
   opacity: 0.6;
   color: white;
@@ -77,13 +77,13 @@
 }
 
 /* popup */
-.scoreCard_container .popup_content {
+.scoreCard_content_container .popup_content {
   width: 298px;
   height: 300px;
   position: relative;
   background-color: unset;
 }
-.scoreCard_container .score {
+.scoreCard_content_container .score {
   width: 50px;
   height: 50px;
 
@@ -100,32 +100,32 @@
 }
 
 /* dots */
-.scoreCard_container .score:nth-child(2) {
+.scoreCard_content_container .score:nth-child(2) {
   top: 45px;
   left: 125px;
 }
-.scoreCard_container .score:nth-child(3) {
+.scoreCard_content_container .score:nth-child(3) {
   top: 80px;
   left: 195px;
 }
-.scoreCard_container .score:nth-child(4) {
+.scoreCard_content_container .score:nth-child(4) {
   top: 160px;
   left: 195px;
 }
-.scoreCard_container .score:nth-child(5) {
+.scoreCard_content_container .score:nth-child(5) {
   top: 200px;
   left: 125px;
 }
-.scoreCard_container .score:nth-child(6) {
+.scoreCard_content_container .score:nth-child(6) {
   top: 160px;
   left: 55px;
 }
-.scoreCard_container .score:nth-child(7) {
+.scoreCard_content_container .score:nth-child(7) {
   top: 80px;
   left: 55px;
 }
 
-.scoreCard_container .backgroundImg {
+.scoreCard_content_container .backgroundImg {
   width: 100%;
   height: 100%;
 

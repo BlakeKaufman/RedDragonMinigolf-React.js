@@ -1,4 +1,4 @@
-.information_container .text_container {
+.globalInformationContianer .text_container {
   width: 90%;
   max-width: 600px;
   height: fit-content;
@@ -7,7 +7,7 @@
   border-radius: 40px;
   text-align: center;
 }
-.information_container .rules_title {
+.globalInformationContianer .rules_title {
   font-family: var(--BlackPerl), sans-serif;
   letter-spacing: 5px;
   color: orange;
@@ -17,7 +17,7 @@
   padding-bottom: 10px;
   border-bottom: 1px solid white;
 }
-.information_container .rules {
+.globalInformationContianer .rules {
   width: 90%;
   margin: 0 auto;
 }
@@ -26,7 +26,7 @@
 }
 
 @media screen and (max-width: 450px) {
-  .information_container .text_container {
+  .globalInformationContianer .text_container {
     margin-top: -10vw;
   }
 }

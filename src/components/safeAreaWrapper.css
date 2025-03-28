@@ -1,7 +1,8 @@
 #safeAreaWrapper {
+  width: 100%;
   min-height: 100%;
   height: fit-content;
-  width: 100%;
+
   padding-bottom: 60px;
   padding-top: 60px;
   display: flex;

@@ -85,7 +85,7 @@ export default function Content() {
   }, [players]);
 
   return (
-    <SafeAreaWrapper className="form_content">
+    <SafeAreaWrapper className="players_name_container">
       <img id="fullTextLogo" src={altLogo} alt="red dragon logo" />
       <h1>Enter Players</h1>
       {inputElements}

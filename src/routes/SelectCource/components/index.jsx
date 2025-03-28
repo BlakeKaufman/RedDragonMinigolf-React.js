@@ -25,13 +25,10 @@ export default function Content() {
   ));
 
   return (
-    <div className="select_course_content_container">
-      <NavBar />
-      <SafeAreaWrapper className={"select_course_content"}>
-        <img id="fullTextLogo" src={altLogo} alt="Red Dragon cove logo" />
-        <h1>Select Course</h1>
-        <div className="courses_container">{courseElements}</div>
-      </SafeAreaWrapper>
-    </div>
+    <SafeAreaWrapper className={"select_course_content"}>
+      <img id="fullTextLogo" src={altLogo} alt="Red Dragon cove logo" />
+      <h1>Select Course</h1>
+      <div className="courses_container">{courseElements}</div>
+    </SafeAreaWrapper>
   );
 }

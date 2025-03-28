@@ -1,8 +1,10 @@
 /* form styling */
 
-.players_name_container .form_content h1 {
+.players_name_container h1 {
+  margin-top: 30px;
   margin-bottom: 20px;
 }
+
 .players_name_container .inputContainer {
   width: 90%;
   height: 70px;

@@ -14,7 +14,12 @@ export default function Content() {
   }
   return (
     <>
-      <img id="skullLogo" src={logo} alt="Red dragon adventure golf logo" />
+      <img
+        loading="lazy"
+        id="skullLogo"
+        src={logo}
+        alt="Red dragon adventure golf logo"
+      />
       <span className="glowing-border" onClick={setGame}>
         Start Round
       </span>

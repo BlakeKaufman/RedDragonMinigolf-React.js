@@ -1,12 +1,12 @@
-.leaderboard_container .leaderboard_content_container h1 {
+.leaderboard_content_container h1 {
   margin-bottom: 20px;
 }
 /* leaderboard elemernts */
 /* form styling */
-.leaderboard_container .leaderboard {
+.leaderboard_content_container .leaderboard {
   width: 100%;
 }
-.leaderboard_container .inputContainer {
+.leaderboard_content_container .inputContainer {
   width: 90%;
   height: 70px;
 
@@ -16,11 +16,11 @@
   position: relative;
   margin-right: auto;
 }
-.leaderboard_container .inputContainer:not(:last-child) {
+.leaderboard_content_container .inputContainer:not(:last-child) {
   margin-bottom: 10px;
 }
 
-.leaderboard_container .inputContainer .playerScore {
+.leaderboard_content_container .inputContainer .playerScore {
   width: 100%;
   height: 40px;
 
@@ -37,7 +37,7 @@
   font-size: 20px;
 }
 
-.leaderboard_container .inputContainer .flagContainer {
+.leaderboard_content_container .inputContainer .flagContainer {
   width: 125px;
   height: 100%;
 
@@ -49,7 +49,7 @@
   left: -6px;
   z-index: 1;
 }
-.leaderboard_container .inputContainer .flagContainer img {
+.leaderboard_content_container .inputContainer .flagContainer img {
   width: 100%;
   height: 100%;
 
@@ -60,7 +60,10 @@
 
   transform: translateY(-50%);
 }
-.leaderboard_container .inputContainer .flagContainer .player_list_container {
+.leaderboard_content_container
+  .inputContainer
+  .flagContainer
+  .player_list_container {
   width: 105px;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -68,7 +71,7 @@
   align-items: center;
   padding: 0 10px;
 }
-.leaderboard_container .inputContainer .flagContainer .player {
+.leaderboard_content_container .inputContainer .flagContainer .player {
   opacity: 0.6;
   padding: 0 0 0 10px;
   color: white;
@@ -78,7 +81,7 @@
   font-size: 25px;
 }
 
-.leaderboard_container .backgroundImg {
+.leaderboard_content_container .backgroundImg {
   width: 100%;
   height: 100%;
   position: absolute;

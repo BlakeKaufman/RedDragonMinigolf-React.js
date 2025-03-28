@@ -4,7 +4,6 @@ import map from "../../assets/images/map.webp";
 import NavBar from "../../components/NavBar";
 import LeaderBoardCard from "./components/LeaderBoardCard";
 import "./index.css";
-import GlobalContentWrapper from "../../components/globalWapper";
 import SafeAreaWrapper from "../../components/safeAreaWrapper";
 
 export default function Leaderboard() {
@@ -26,17 +25,16 @@ export default function Leaderboard() {
   const leaderBoardElements = game.Players.map((player) => {
     return <LeaderBoardCard key={player.id} {...player} />;
   });
+  const root = document.getElementById("root");
+  root.style.backgroundImage = `url(${map})`;
   return (
     <>
-      <GlobalContentWrapper className="leaderboard_container">
-        <NavBar name="leaderboard" />
-        <SafeAreaWrapper className="leaderboard_content_container">
-          <img id="fullTextLogo" src={altLogo} alt="red dragon cove logo" />
-          <h1>Leaderboard</h1>
-          <div className="leaderboard">{leaderBoardElements}</div>
-        </SafeAreaWrapper>
-      </GlobalContentWrapper>
-      <img id="backgroundImg" src={map} alt="background map image" />
+      <NavBar name="leaderboard" />
+      <SafeAreaWrapper className="leaderboard_content_container">
+        <img id="fullTextLogo" src={altLogo} alt="red dragon cove logo" />
+        <h1>Leaderboard</h1>
+        <div className="leaderboard">{leaderBoardElements}</div>
+      </SafeAreaWrapper>
     </>
   );
 }
