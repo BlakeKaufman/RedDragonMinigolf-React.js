@@ -1,13 +1,16 @@
 import Content from "./components";
 import "./index.css";
 import shipImg from "../../assets/images/DragonBoat.webp";
+import SafeAreaWrapper from "../../components/safeAreaWrapper";
 
 export default function LoadingPage() {
   return (
     <>
-      <Content />
+      <SafeAreaWrapper className={"landingPage"}>
+        <Content />
+      </SafeAreaWrapper>
       <img
-        className="backgroundImg"
+        id="backgroundImg"
         src={shipImg}
         alt="background image of a ship wih a dragon spraying fire"
       />

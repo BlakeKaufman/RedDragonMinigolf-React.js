@@ -1,85 +1,79 @@
-import { useState } from "react";
-import logo from "../../../assets/images/altLogo.webp";
+import { useCallback, useMemo, useState } from "react";
+import logo from "/altLogo.webp";
 import Row from "./ScoreCardRow";
-import NavBar from "../../../components/NavBar";
 
 import ScoreSelector from "./ScoreSelector";
-const holes = [
-  { id: 0 },
-  { id: 1, ada: 2, nonAda: 2 },
-  { id: 2, ada: 2, nonAda: 3 },
-  { id: 3, ada: 2, nonAda: 2 },
-  { id: 4, ada: 2, nonAda: 2 },
-  { id: 5, ada: 2, nonAda: 2 },
-  { id: 6, ada: 2, nonAda: 2 },
-  { id: 7, ada: 2, nonAda: 2 },
-  { id: 8, ada: 2, nonAda: 2 },
-  { id: 9, ada: 3, nonAda: 2 },
-  { id: "scoref" },
-  { id: 10, ada: 2, nonAda: 2 },
-  { id: 11, ada: 2, nonAda: 3 },
-  { id: 12, ada: 2, nonAda: 2 },
-  { id: 13, ada: 2, nonAda: 2 },
-  { id: 14, ada: 3, nonAda: 2 },
-  { id: 15, ada: 2, nonAda: 2 },
-  { id: 16, ada: 2, nonAda: 2 },
-  { id: 17, ada: 3, nonAda: 2 },
-  { id: 18, ada: 2, nonAda: 2 },
-  { id: "scoreb" },
-];
-export default function Content(props) {
-  const game = props.game;
+import { useNavigate } from "react-router-dom";
+import SubmitButton from "../../../components/SubmitButton";
+import { GOLF_COURSE_HOLES } from "../../../constants";
+import SafeAreaWrapper from "../../../components/safeAreaWrapper";
+
+export default function Content({ game, gameState }) {
+  const navigate = useNavigate();
   const [popupDisplayed, setPopupDisplayed] = useState(false);
   const [targetPlayer, setTargetPlayer] = useState([]);
 
-  function showPopup(playerId, holeId) {
-    setTargetPlayer([playerId, holeId]);
-    setPopupDisplayed(true);
-  }
-
   function setScore(event) {
-    const targetEvent = event.target;
-    if (targetEvent.classList.contains("score")) {
-      const clickedScore = Number(targetEvent.textContent);
-      const [playerId, holeId] = targetPlayer;
+    try {
+      const targetEvent = event.target;
+      if (targetEvent.classList.contains("score")) {
+        const clickedScore = Number(targetEvent.textContent);
+        const [playerId, holeId] = targetPlayer;
 
-      const [filteredPlayer] = game.Players.filter(
-        (player) => player.id === playerId
-      );
+        const [filteredPlayer] = game.Players.filter(
+          (player) => player.id === playerId
+        );
 
-      const updatedScore = filteredPlayer.score.map((score) =>
-        score.hole === holeId ? { ...score, score: clickedScore } : score
-      );
+        const updatedScore = filteredPlayer.score.map((score) =>
+          score.hole === holeId ? { ...score, score: clickedScore } : score
+        );
 
-      props.gameState((prevGame) => {
-        const newGame = {
-          ...prevGame,
-          Players: prevGame.Players.map((player) => {
-            return player.id === playerId
-              ? { ...player, score: updatedScore }
-              : player;
-          }),
-        };
-        return newGame;
-      });
-
+        gameState((prevGame) => {
+          return {
+            ...prevGame,
+            Players: prevGame.Players.map((player) => {
+              return player.id === playerId
+                ? { ...player, score: updatedScore }
+                : player;
+            }),
+          };
+        });
+      }
+    } catch (err) {
+      console.log("set score error", err);
+    } finally {
       setPopupDisplayed(false);
-    } else {
-      setPopupDisplayed(false);
+      setTargetPlayer([]);
     }
   }
 
-  const rowElements = holes.map((hole) => {
-    return (
-      <Row
-        handleClick={showPopup}
-        game={game}
-        key={hole.id}
-        totals={{ frontAda: 19, backAda: 20, frontNonAda: 19, backNonAda: 19 }}
-        {...hole}
-      />
-    );
-  });
+  const showPopup = useCallback((playerId, holeId) => {
+    setTargetPlayer([playerId, holeId]);
+    setPopupDisplayed(true);
+  }, []);
+
+  const submitScorecard = useCallback(() => {
+    navigate("/leaderboard");
+  }, []);
+
+  const rowElements = useMemo(() => {
+    return GOLF_COURSE_HOLES.map((hole) => {
+      return (
+        <Row
+          handleClick={showPopup}
+          game={game}
+          key={hole.id}
+          totals={{
+            frontAda: 19,
+            backAda: 20,
+            frontNonAda: 19,
+            backNonAda: 19,
+          }}
+          {...hole}
+        />
+      );
+    });
+  }, [showPopup, game]);
 
   const headingColorStyles = {
     color: !game.isAda ? "orange" : "lightblue",
@@ -89,18 +83,18 @@ export default function Content(props) {
   };
 
   return (
-    <div className="scoreCard_content_container">
-      <NavBar name="scoreCard" courseNumber={game.isAda ? 2 : 1} />
-      <img src={logo} alt="red dragon logo" className="altLogo" />
+    <SafeAreaWrapper className="scoreCard_content_container">
+      <img src={logo} alt="red dragon logo" id="fullTextLogo" />
       <h1 style={headingColorStyles}>{game.courseName.toUpperCase()}</h1>
       <div style={gridStyle} className="grid-container">
         {rowElements}
       </div>
+      <SubmitButton functionName={submitScorecard} content="See Winner" />
       <ScoreSelector
         game={game}
         setScore={setScore}
         isDisplayed={popupDisplayed}
       />
-    </div>
+    </SafeAreaWrapper>
   );
 }

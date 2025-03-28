@@ -1,0 +1,32 @@
+.information_container .text_container {
+  width: 90%;
+  max-width: 600px;
+  height: fit-content;
+  margin: -45px auto 0;
+  padding: 25px 0;
+  border-radius: 40px;
+  text-align: center;
+}
+.information_container .rules_title {
+  font-family: var(--BlackPerl), sans-serif;
+  letter-spacing: 5px;
+  color: orange;
+  text-transform: uppercase;
+  margin: 35px 0 30px 0;
+  font-size: min(6vw, 25px);
+  padding-bottom: 10px;
+  border-bottom: 1px solid white;
+}
+.information_container .rules {
+  width: 90%;
+  margin: 0 auto;
+}
+#skullLogo {
+  z-index: 1;
+}
+
+@media screen and (max-width: 450px) {
+  .information_container .text_container {
+    margin-top: -10vw;
+  }
+}

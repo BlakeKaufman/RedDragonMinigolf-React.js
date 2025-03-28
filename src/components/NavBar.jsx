@@ -1,20 +1,31 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import menuOpen from "../assets/icons/menuOpen.svg";
 import menuClose from "../assets/icons/menuClose.svg";
 import mapIcon from "../assets/icons/map.svg";
 import arrowRight from "../assets/icons/arrowRight.svg";
 import arrowRightOrange from "../assets/icons/arrowRightOrange.svg";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./NavBar.css";
 
 export default function NavBar(props) {
+  const navigate = useNavigate();
   const [navState, setNavState] = useState(false);
 
-  function showNav() {
+  const showNav = useCallback(() => {
     setNavState((prevState) => !prevState);
-  }
+  }, [setNavState]);
+
+  const goBack = useCallback(() => {
+    navigate(-1);
+  }, []);
+
+  const handleNavigation = useCallback((routePath) => {
+    console.log(routePath, routePath.includes("selectCource"));
+    navigate(routePath, { replace: routePath.includes("selectCource") });
+    setNavState(false);
+  }, []);
 
   const navStyles = {
     right: navState ? "0" : "-100%",
@@ -32,14 +43,32 @@ export default function NavBar(props) {
 
   return (
     <nav style={scoreCardStyles} id="nav">
-      {props.name === "scoreCard" && (
-        <div className="scoreCardNav">
-          <span>Course</span>
-          <div style={numberBackColor} className="number">
-            <span style={numberSpanColor}>{props.courseNumber}</span>
+      <div className="navContainer">
+        {props.name !== "scoreCard" ? (
+          <img
+            onClick={goBack}
+            className="disable-dbl-tap-zoom"
+            id="goBackNav"
+            src={arrowRight}
+            alt="Hamburger icon for navigation"
+          />
+        ) : (
+          <div className="scoreCardNav">
+            <span>Course</span>
+            <div style={numberBackColor} className="number">
+              <span style={numberSpanColor}>{props.courseNumber}</span>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+        <img
+          onClick={showNav}
+          className="disable-dbl-tap-zoom"
+          id="mb-nav"
+          src={navState ? menuClose : menuOpen}
+          alt="Hamburger icon for navigation"
+        />
+      </div>
+
       <ul id="nav-items" style={navStyles}>
         <div className="CouseMap-img">
           <img src={mapIcon} alt="map icon" />
@@ -47,54 +76,37 @@ export default function NavBar(props) {
         </div>
         <div className="list-style">
           <img src={arrowRightOrange} alt="map icon" />
-          <li>
-            <Link to="/selectCource">SELECT COURSE</Link>
+          <li onClick={() => handleNavigation("/selectCource")}>
+            SELECT COURSE
           </li>
         </div>
         {props.name === "scoreCard" && (
           <div className="list-style">
             <img src={arrowRightOrange} alt="map icon" />
-            <li>
-              <Link to="/leaderboard">LEADERBOARD</Link>
+            <li onClick={() => handleNavigation("/leaderboard")}>
+              LEADERBOARD
             </li>
           </div>
         )}
         {props.name === "leaderboard" && (
           <div className="list-style">
             <img src={arrowRightOrange} alt="map icon" />
-            <li>
-              <Link to="/scoreCard">SCORE CARD</Link>
-            </li>
+            <li onClick={() => handleNavigation("/scoreCard")}>SCORE CARD</li>
           </div>
         )}
-        {/* <!--<div className="list-style">-->
-            <!--    <img src="./images/reshot-icon-bold-right-arrow-STPW6DFVRY-7b0db.svg" alt="map icon">-->
-            <!--    <li><a href="index.php?PageName=ScorecardMC">SCORE CARD</a></li>-->
-            <!--</div>-->
-            <!--<div className="list-style">-->
-            <!--    <img src="./images/reshot-icon-bold-right-arrow-STPW6DFVRY-7b0db.svg" alt="map icon">-->
-            <!--    <li><a href="#">LEADER BOARD</a></li>-->
-            <!--</div>--> */}
         <div className="list-style">
           <img src={arrowRightOrange} alt="map icon" />
-          <li>
-            <Link to="/rules">RULES</Link>
+          <li className="formPages" onClick={() => handleNavigation("/rules")}>
+            RULES
           </li>
         </div>
         <div className="list-style">
           <img src={arrowRightOrange} alt="map icon" />
-          <li>
-            <Link to="/waiver">WAIVER</Link>
+          <li className="formPages" onClick={() => handleNavigation("/waiver")}>
+            WAIVER
           </li>
         </div>
       </ul>
-      <img
-        onClick={showNav}
-        className="disable-dbl-tap-zoom"
-        id="mb-nav"
-        src={navState ? menuClose : menuOpen}
-        alt="Hamburger icon for navigation"
-      />
     </nav>
   );
 }

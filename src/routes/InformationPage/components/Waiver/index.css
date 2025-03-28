@@ -1,0 +1,22 @@
+.waiver_container .text_container {
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 62, 98, 0.7),
+    rgba(0, 62, 98, 1)
+  );
+}
+.waiver_container .header_text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.waiver_container .header_text h4 {
+  margin: 0 10px;
+}
+
+.waiver_container .rules {
+  color: white;
+}

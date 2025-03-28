@@ -1,20 +1,8 @@
-.players_name_container {
-  width: 100vw;
-  height: fit-content;
-
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-
-  position: relative;
-}
-/* .players_name_container .form_content {
-  padding-bottom: 100px;
-} */
-
 /* form styling */
 
+.players_name_container .form_content h1 {
+  margin-bottom: 20px;
+}
 .players_name_container .inputContainer {
   width: 90%;
   height: 70px;
@@ -23,6 +11,7 @@
   align-items: center;
 
   position: relative;
+  margin-right: auto;
 }
 .players_name_container .inputContainer:not(:last-child) {
   margin-bottom: 10px;
@@ -37,6 +26,7 @@
   border-radius: 0px 20px 20px 0px;
   border: none;
 
+  cursor: pointer;
   padding: 0 0 0 20%;
 }
 
@@ -44,27 +34,22 @@
   text-transform: uppercase;
 }
 .players_name_container .inputContainer .flagContainer {
-  width: auto;
+  width: 135px;
   height: 100%;
 
   display: flex;
   align-items: center;
-
   position: absolute;
   top: 0;
   left: -6px;
   z-index: 1;
 }
 .players_name_container .inputContainer .flagContainer img {
-  width: 125px;
-  height: 145px;
+  width: 100%;
+  height: 100%;
 
   position: absolute;
-  top: 50%;
-  left: 0;
   z-index: -1;
-
-  transform: translateY(-50%);
 }
 .players_name_container.inputContainer .flagContainer .player_list_container {
   display: flex;
@@ -72,12 +57,12 @@
 }
 .players_name_container .inputContainer .flagContainer .player {
   opacity: 0.6;
-  padding: 0 0 0 10px;
   color: white;
   font-family: var(--BlackPerl);
   background-color: unset;
   margin: unset;
   margin-right: 10px;
+  margin-left: 15px;
 }
 .players_name_container .inputContainer .flagContainer .number {
   color: white;
@@ -87,18 +72,6 @@
   font-size: 25px;
 }
 
-.backgroundImage {
-  width: 100%;
-  height: 100%;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  object-fit: cover;
-  object-position: center;
-  z-index: -1;
-}
 @media screen and (max-width: 280px) {
   .players_name_container .inputContainer .flagContainer img {
     width: 115px;

@@ -1,31 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavBar from "../../components/NavBar";
 import Content from "./components";
 import "./index.css";
 import map from "../../assets/images/map.webp";
-import SubmitButton from "../../components/SubmitButton";
+import GlobalContentWrapper from "../../components/globalWapper";
 
 export default function ScoreCard() {
   const [game, setGame] = useState(
     JSON.parse(localStorage.getItem("RedDragonGolf"))
   );
-  localStorage.setItem("RedDragonGolf", JSON.stringify(game));
 
-  function submitScorecard() {
+  useEffect(() => {
+    if (!game) return;
+
     localStorage.setItem("RedDragonGolf", JSON.stringify(game));
-
-    window.open("https://rdadventuregolf.netlify.app/leaderboard", "_self");
-  }
+  }, [game]);
 
   return (
-    <div className="scoreCard_container">
-      <Content gameState={setGame} game={game} />
-      <SubmitButton functionName={submitScorecard} content="See Winner" />
-      <img
-        src={map}
-        alt="pirets map background image"
-        className="backgroundImg"
-      />
-    </div>
+    <>
+      <GlobalContentWrapper className="scoreCard_container">
+        <NavBar name="scoreCard" courseNumber={game.isAda ? 2 : 1} />
+        <Content gameState={setGame} game={game} />
+      </GlobalContentWrapper>
+      <img src={map} alt="pirets map background image" id="backgroundImg" />
+    </>
   );
 }

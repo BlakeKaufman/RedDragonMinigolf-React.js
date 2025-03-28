@@ -1,0 +1,24 @@
+.rules_container .text_container {
+  background-image: linear-gradient(
+    to top,
+    rgba(255, 0, 0, 0.7),
+    rgba(255, 0, 0, 1)
+  );
+}
+
+.rules_container h3 {
+  font-family: var(--BlackPerl), sans-serif;
+  margin-bottom: 10px;
+  font-size: 25px;
+  color: burlywood;
+  line-height: 1.5em;
+}
+.rules_container p {
+  margin-bottom: 30px;
+  color: white;
+}
+
+/* presets */
+.rules_container .pb {
+  padding-bottom: 10px;
+}

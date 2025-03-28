@@ -1,6 +1,8 @@
-import logo from "../../../assets/images/Logo.webp";
+import { useNavigate } from "react-router-dom";
+import logo from "/Logo.webp";
 
 export default function Content() {
+  const navigate = useNavigate();
   function setGame() {
     const game = {
       courseName: "",
@@ -8,15 +10,14 @@ export default function Content() {
       Players: [],
     };
     localStorage.setItem("RedDragonGolf", JSON.stringify(game));
-
-    window.open("https://rdadventuregolf.netlify.app/selectCource", "_self");
+    navigate("/selectCource");
   }
   return (
-    <div className="content">
-      <img className="logo" src={logo} alt="logo" />
+    <>
+      <img id="skullLogo" src={logo} alt="Red dragon adventure golf logo" />
       <span className="glowing-border" onClick={setGame}>
         Start Round
       </span>
-    </div>
+    </>
   );
 }

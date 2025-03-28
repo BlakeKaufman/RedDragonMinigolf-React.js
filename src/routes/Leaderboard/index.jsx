@@ -1,9 +1,11 @@
-import altLogo from "../../assets/images/altLogo.webp";
+import altLogo from "/altLogo.webp";
 
 import map from "../../assets/images/map.webp";
 import NavBar from "../../components/NavBar";
 import LeaderBoardCard from "./components/LeaderBoardCard";
 import "./index.css";
+import GlobalContentWrapper from "../../components/globalWapper";
+import SafeAreaWrapper from "../../components/safeAreaWrapper";
 
 export default function Leaderboard() {
   const game = JSON.parse(localStorage.getItem("RedDragonGolf"));
@@ -25,14 +27,16 @@ export default function Leaderboard() {
     return <LeaderBoardCard key={player.id} {...player} />;
   });
   return (
-    <div className="leaderboard_container">
-      <NavBar name="leaderboard" />
-      <div className="leaderboard_content_container">
-        <img className="altLogo" src={altLogo} alt="red dragon cove logo" />
-        <h1>Leaderboard</h1>
-        <div className="leaderboard">{leaderBoardElements}</div>
-      </div>
-      <img className="backgroundImg" src={map} alt="background map image" />
-    </div>
+    <>
+      <GlobalContentWrapper className="leaderboard_container">
+        <NavBar name="leaderboard" />
+        <SafeAreaWrapper className="leaderboard_content_container">
+          <img id="fullTextLogo" src={altLogo} alt="red dragon cove logo" />
+          <h1>Leaderboard</h1>
+          <div className="leaderboard">{leaderBoardElements}</div>
+        </SafeAreaWrapper>
+      </GlobalContentWrapper>
+      <img id="backgroundImg" src={map} alt="background map image" />
+    </>
   );
 }

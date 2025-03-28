@@ -1,8 +1,10 @@
 import coin from "../../../assets/images/scoreSelector.webp";
 export default function ScoreSelector(props) {
   const root = document.getElementById("root");
+
   if (props.isDisplayed) {
     root.style.overflow = "hidden";
+
     root.scrollTo({
       top: 0,
       left: 0,

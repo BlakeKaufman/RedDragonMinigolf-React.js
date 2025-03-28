@@ -1,42 +1,37 @@
-import altLogo from "../../../assets/images/altLogo.webp";
+import altLogo from "/altLogo.webp";
 import CourseBox from "./courseBox";
-
-const courses = [
-  {
-    name: "Marauders Challenge",
-    id: 1,
-    isAda: false,
-  },
-  {
-    name: "the pirates plank",
-    id: 2,
-    isAda: true,
-  },
-];
+import NavBar from "../../../components/NavBar";
+import { useNavigate } from "react-router-dom";
+import { COURSE_LIST } from "../../../constants";
+import SafeAreaWrapper from "../../../components/safeAreaWrapper";
 
 export default function Content() {
+  const navigate = useNavigate();
   function setCourse(id) {
-    const [selectedCourse] = courses.filter((course) => course.id === id);
+    const [selectedCourse] = COURSE_LIST.filter((course) => course.id === id);
 
     const game = JSON.parse(localStorage.getItem("RedDragonGolf"));
 
     game.courseName =
-      selectedCourse.id === 1 ? courses[0].name : courses[1].name;
-    game.isAda = selectedCourse.id === 1 ? courses[0].isAda : courses[1].isAda;
+      selectedCourse.id === 1 ? COURSE_LIST[0].name : COURSE_LIST[1].name;
+    game.isAda =
+      selectedCourse.id === 1 ? COURSE_LIST[0].isAda : COURSE_LIST[1].isAda;
 
     localStorage.setItem("RedDragonGolf", JSON.stringify(game));
-
-    window.open("https://rdadventuregolf.netlify.app/playersName", "_self");
+    navigate("/playersName");
   }
-  const courseElements = courses.map((course) => (
+  const courseElements = COURSE_LIST.map((course) => (
     <CourseBox handleClick={setCourse} key={course.id} {...course} />
   ));
 
   return (
-    <div className="select_course_content">
-      <img className="altLogo" src={altLogo} alt="Red Dragon cove logo" />
-      <h1>Select Course</h1>
-      <div className="courses_container">{courseElements}</div>
+    <div className="select_course_content_container">
+      <NavBar />
+      <SafeAreaWrapper className={"select_course_content"}>
+        <img id="fullTextLogo" src={altLogo} alt="Red Dragon cove logo" />
+        <h1>Select Course</h1>
+        <div className="courses_container">{courseElements}</div>
+      </SafeAreaWrapper>
     </div>
   );
 }

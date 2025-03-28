@@ -1,52 +1,49 @@
-import { useState } from "react";
-import altLogo from "../../../assets/images/altLogo.webp";
+import { useCallback, useMemo, useState } from "react";
+import altLogo from "/altLogo.webp";
 import NameCard from "./NameCard";
 import Popup from "../../../components/Popup";
 import SubmitButton from "../../../components/SubmitButton";
+import { useNavigate } from "react-router-dom";
+import createScoreArray from "../../../functions/scoreArray";
+import SafeAreaWrapper from "../../../components/safeAreaWrapper";
 
-function createArray() {
-  return Array.from({ length: 18 }, (_, index) => {
-    return { hole: index + 1, score: 0 };
-  });
-}
-
-const playersArr = [
-  {
-    id: 1,
-    name: "",
-    score: createArray(),
-  },
-  {
-    id: 2,
-    name: "",
-    score: createArray(),
-  },
-  {
-    id: 3,
-    name: "",
-    score: createArray(),
-  },
-  {
-    id: 4,
-    name: "",
-    score: createArray(),
-  },
-  {
-    id: 5,
-    name: "",
-    score: createArray(),
-  },
-  {
-    id: 6,
-    name: "",
-    score: createArray(),
-  },
-];
 export default function Content() {
-  const [players, setPlayers] = useState(playersArr);
+  const navigate = useNavigate();
+  const [players, setPlayers] = useState([
+    {
+      id: 1,
+      name: "",
+      score: createScoreArray(),
+    },
+    {
+      id: 2,
+      name: "",
+      score: createScoreArray(),
+    },
+    {
+      id: 3,
+      name: "",
+      score: createScoreArray(),
+    },
+    {
+      id: 4,
+      name: "",
+      score: createScoreArray(),
+    },
+    {
+      id: 5,
+      name: "",
+      score: createScoreArray(),
+    },
+    {
+      id: 6,
+      name: "",
+      score: createScoreArray(),
+    },
+  ]);
   const [isPopupDisplayed, setIsPopupDisplayed] = useState(false);
 
-  function submitForm() {
+  const submitForm = useCallback(() => {
     const filledPlayers = players.filter((player) =>
       player.name ? player : null
     );
@@ -58,31 +55,38 @@ export default function Content() {
 
       localStorage.setItem("RedDragonGolf", JSON.stringify(game));
 
-      window.open("https://rdadventuregolf.netlify.app/scoreCard", "_self");
+      navigate("/scoreCard", { replace: true });
     } else {
       setIsPopupDisplayed(true);
     }
-  }
-  function getPlayers(event, id) {
-    const content = event.target.value;
+  }, [setIsPopupDisplayed, players, navigate]);
 
-    setPlayers((prevArr) => {
-      return prevArr.map((player) =>
-        player.id === id ? { ...player, name: content } : player
-      );
-    });
-  }
+  const getPlayers = useCallback(
+    (event, id) => {
+      const content = event.target.value;
 
-  function clearPopup() {
+      setPlayers((prevArr) => {
+        return prevArr.map((player) =>
+          player.id === id ? { ...player, name: content } : player
+        );
+      });
+    },
+    [setPlayers]
+  );
+
+  const clearPopup = useCallback(() => {
     setIsPopupDisplayed(false);
-  }
+  }, []);
 
-  const inputElements = players.map((player) => (
-    <NameCard handleForm={getPlayers} key={player.id} id={player.id} />
-  ));
+  const inputElements = useMemo(() => {
+    return players.map((player) => (
+      <NameCard handleForm={getPlayers} key={player.id} id={player.id} />
+    ));
+  }, [players]);
+
   return (
-    <div className="form_content">
-      <img className="altLogo" src={altLogo} alt="red dragon logo" />
+    <SafeAreaWrapper className="form_content">
+      <img id="fullTextLogo" src={altLogo} alt="red dragon logo" />
       <h1>Enter Players</h1>
       {inputElements}
 
@@ -92,6 +96,6 @@ export default function Content() {
         isDisplayed={isPopupDisplayed}
         text="Please Enter Players Name"
       />
-    </div>
+    </SafeAreaWrapper>
   );
 }
